@@ -15,8 +15,3 @@ The Bank Account Management System allows users to manage different types of ban
 - **C++**: Object-oriented programming (OOP) with classes, inheritance, and polymorphism.
 - **Standard Library**: Input/Output, exception handling, and utility functions.
 
-## Installation
-1. Clone this repository to your local machine.
-2. Use a C++ compiler to build the project:
-   ```bash
-   g++ main.cpp BankAccount.cpp -o BankAccountApp
