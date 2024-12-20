@@ -3,8 +3,30 @@
 #include "Checking.h"
 #include <iostream>
 #include <iomanip>
-#include <iostream>
 
+
+
+/**
+ * @brief Displays the user's options to deposit or withdraw from their bank account,
+ *        processes the transactions, and displays account details.
+ *
+ * @param pointer A pointer to the BankAccount object that the user wants to manage.
+ *                The function allows deposit and withdrawal operations on this account.
+ */
+void userData(BankAccount *pointer);
+
+/**
+ * @brief Prompts the user to create a new bank account, allowing them to specify the
+ *        account type, initial balance, and annual interest rate.
+ *        The function handles user input and creates the appropriate BankAccount object.
+ */
+void createAccount();
+
+
+int main() {
+    createAccount();
+    return 0;
+}
 
 void userData(BankAccount *pointer) {
     double depositAmount, withdrawalsAmount;
@@ -37,10 +59,9 @@ void userData(BankAccount *pointer) {
                     }
                     pointer->deposit(depositAmount);
                 }
-                std::cout << "Monthly service charge: $" << std::setprecision(2) << std::fixed << pointer->getMonthlyServiceCharge() << std::endl;
                 pointer->monthlyProc(); // Apply monthly processing
-                std::cout << "Deposit number: " << depositTimes << std::endl;
-                std::cout << "Ending balance: $" << pointer->getBalance() << std::endl;
+                pointer->to_String();
+
             } break;
 
             case 2: { // Withdrawals Case
@@ -55,10 +76,9 @@ void userData(BankAccount *pointer) {
                     }
                     pointer->withdraw(withdrawalsAmount);
                 }
-                std::cout << "Monthly service charge: $" << std::setprecision(2) << std::fixed << pointer->getMonthlyServiceCharge() << std::endl;
                 pointer->monthlyProc(); // Apply monthly processing
-                std::cout << "Withdrawal number: " << withdrawalTimes << std::endl;
-                std::cout << "Ending balance: $" << pointer->getBalance() << std::endl;
+                pointer->to_String();
+
             } break;
 
             case 3: { // Exit Case
@@ -147,7 +167,4 @@ void createAccount() {
     delete account;
 }
 
-int main() {
-    createAccount();
-    return 0;
-}
+
