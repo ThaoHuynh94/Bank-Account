@@ -51,19 +51,22 @@ void Saving::monthlyProc() {
 }
 
 
-// Implementing to_String for Saving class
-std::string Saving::to_String()  {
+std::string Saving::to_String() {
     std::ostringstream out;
     out << std::fixed << std::setprecision(2);
 
-    out << "Saving Account Summary:\n"
-        << "-----------------------------------\n"
-        << "Current Balance: $" << getBalance() << "\n"
-        << "Account Status: " << (checkStatus() ? "Active" : "Inactive") << "\n"
-        << "Monthly Service Charge: $" << getMonthlyServiceCharge() << "\n"
-        << "Total Withdrawals This Month: " << getWithdrawNum() << "\n"
-        << "Annual Interest Rate: " << getAnnualInterestRate() << "%\n"
-        << "-----------------------------------\n";
+    out << "=========================================\n"
+        << "            Saving Account Summary      \n"
+        << "=========================================\n";
+
+    // Printing each detail with fixed width for alignment
+    out << std::left << std::setw(35) << "Current Balance:" << "$" << std::setw(10) << getBalance() << "\n"
+        << std::setw(35) << "Account Status:" << std::setw(10) << (checkStatus() ? "Active" : "Inactive") << "\n"
+        << std::setw(35) << "Monthly Service Charge:" << "$" << std::setw(10) << getMonthlyServiceCharge() << "\n"
+        << std::setw(35) << "Total Withdrawals This Month:" << std::setw(10) << getWithdrawNum() << "\n"
+        << std::setw(35) << "Annual Interest Rate:" << std::setw(10) << getAnnualInterestRate() << " %\n";
+
+    out << "=========================================\n";
 
     return out.str();
 }
