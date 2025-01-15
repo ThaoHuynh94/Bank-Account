@@ -1,3 +1,4 @@
+
 #include "checking.h"
 
 // Constructor
@@ -36,14 +37,20 @@ std::string Checking::to_String() {
     std::ostringstream out;
     out << std::fixed << std::setprecision(2);
 
-    out << "Checking Account Summary:\n"
-        << "-----------------------------------\n"
-        << "Current Balance: $" << getBalance() << "\n"
-        << "Overdraft Limit: $" << CHECKING_OVERDRAFT_LIMIT << "\n"
-        << "Overdraft Fee: $" << CHECKING_OVERDRAFT_FEE << "\n"
-        << "Monthly Service Charge: $" << getMonthlyServiceCharge() << "\n"
-        << "Total Withdrawals This Month: " << getWithdrawNum() << "\n"
-        << "-----------------------------------\n";
+    // Header with proper alignment
+    out << "=========================================\n"
+        << "          Checking Account Summary      \n"
+        << "=========================================\n";
+
+    // Printing each detail with fixed width for alignment
+    out << std::left << std::setw(35) << "Current Balance:" << "$" << std::setw(10) << getBalance() << "\n"
+        << std::setw(35) << "Overdraft Limit:" << "$" << std::setw(10) << CHECKING_OVERDRAFT_LIMIT << "\n"
+        << std::setw(35) << "Overdraft Fee:" << "$" << std::setw(10) << CHECKING_OVERDRAFT_FEE << "\n"
+        << std::setw(35) << "Monthly Service Charge:" << "$" << std::setw(10) << getMonthlyServiceCharge() << "\n"
+        << std::setw(35) << "Total Withdrawals This Month:" << std::setw(10) << getWithdrawNum() << "\n";
+
+    out << "=========================================\n";
 
     return out.str();
 }
+
