@@ -25,6 +25,8 @@ private:
     int withdrawalNum;              ///< Number of withdrawals made this month
     double annualInterestRate;      ///< Annual interest rate (in percentage)
     double monthlyServiceCharges;   ///< Monthly service charges applied to the account
+    double withdrawAmount;          ///< Withdraw amount this month
+    double  depositAmount;         ///< Deposit amount this month
 
 public:
     /**
@@ -124,6 +126,7 @@ public:
      * @return A string representation of the bank account
      */
     virtual std::string to_String();  // Adding to_String here
+
 };
 
 #endif
