@@ -4,7 +4,7 @@
 BankAccount::BankAccount() : balance(0.0), depositNum(0), withdrawalNum(0), annualInterestRate(0.0), monthlyServiceCharges(0.0){}
 
 BankAccount::BankAccount(double balance, double annualInterestRate) : annualInterestRate(annualInterestRate), depositNum(0),
-withdrawalNum(0), monthlyServiceCharges(0.0) {
+                                                                      withdrawalNum(0), monthlyServiceCharges(0.0) {
 
     //double check if the starting balance of the account is a valid amount
 
@@ -20,6 +20,7 @@ withdrawalNum(0), monthlyServiceCharges(0.0) {
 void BankAccount::deposit(double deposit) {
     balance += deposit;
     depositNum++;
+    depositAmount+= deposit;
 }
 
 void BankAccount::withdraw(double withdraw) {
@@ -31,6 +32,7 @@ void BankAccount::withdraw(double withdraw) {
     } else{
         balance -= withdraw;
         withdrawalNum++;
+        withdrawAmount += withdraw;
     }
 
 }
@@ -47,8 +49,6 @@ void BankAccount::calcInt() {
 void BankAccount::monthlyProc() {
     balance -= monthlyServiceCharges;
     calcInt();
-    withdrawalNum = depositNum = 0;
-    monthlyServiceCharges = 0.0;
 }
 
 
@@ -78,19 +78,26 @@ double BankAccount::getMonthlyServiceCharge() const{
 
 std::string BankAccount::to_String() {
     std::ostringstream out;
+
     out << std::fixed << std::setprecision(2);
 
-    out << "Bank Account Summary:\n"
-        << "-----------------------------------\n"
-        << "Current Balance: $" << balance << "\n"
-        << "Monthly Service Charge: $" << monthlyServiceCharges << "\n"
-        << "Total Deposits This Month: " << depositNum << "\n"
-        << "Total Withdrawals This Month: " << withdrawalNum << "\n"
-        << "Annual Interest Rate: " << annualInterestRate << "%\n"
-        << "-----------------------------------\n";
+    out << "=========================================\n"
+        << "            Bank Account Summary        \n"
+        << "=========================================\n"
+        << std::left << std::setw(35) << "Current Balance:" << "$" << std::setw(12) << balance << "\n"
+        << std::setw(35) << "Monthly Service Charge:" << "$" << std::setw(12) << monthlyServiceCharges << "\n"
+        << std::setw(35) << "Total Deposit Amount This Month:" << "$" << std::setw(12) << depositAmount << "\n"
+        << std::setw(35) << "Total Deposit Number This Month:" << std::setw(12) << depositNum << "\n"
+        << std::setw(35) << "Total Withdrawal Number This Month:" << std::setw(12) << withdrawalNum << "\n"
+        << std::setw(35) << "Total Withdrawal Amount This Month:" << "$" << std::setw(12) << withdrawAmount << "\n";
+    out << std::setw(35) << "Annual Interest Rate:" << std::setw(10) << annualInterestRate << " %\n";
+
+    out << "=========================================\n";
 
     return out.str();
 }
+
+
 
 
 int  BankAccount::getAnnualInterestRate() const{
