@@ -14,7 +14,8 @@ The Bank Account Management System allows users to manage different types of ban
 
 ## UML Diagram
 Here is the UML diagram for the Bank Account:
-<img width="1032" alt="Untitled P1 2" src="https://github.com/user-attachments/assets/548baab8-7e77-4cb8-a28e-5f5ef9220ff2" />
+<img width="1032" alt="Untitled P1 3" src="https://github.com/user-attachments/assets/75ebc64c-8977-46d4-b6f6-122c3b20509c" />
+
 
 
 ## Technologies Used
