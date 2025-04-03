@@ -12,6 +12,11 @@ The Bank Account Management System allows users to manage different types of ban
 - **Overdraft Management**: Special handling of overdraft limits and fees for Checking accounts.
 - **Account Summary**: Provides a detailed summary of account activities, including balances, service charges, deposits, withdrawals, and annual interest rates.
 
+## UML Diagram
+Here is the UML diagram for the Bank Account:
+<img width="1032" alt="Untitled P1 2" src="https://github.com/user-attachments/assets/548baab8-7e77-4cb8-a28e-5f5ef9220ff2" />
+
+
 ## Technologies Used
 - **C++**: Object-oriented programming (OOP) with classes, inheritance, and polymorphism.
 - **Standard Library**: Input/Output, exception handling, and utility functions.
